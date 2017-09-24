@@ -140,9 +140,18 @@ public class Main {
         System.out.println("For Loop:");
         int temp = 0;
         // write for loop
+        for( Entry entry: entries ) {
+            if( entry.getDuration() > temp ) {
+                temp = entry.getDuration();
+            }
+        }
         System.out.println("The Max Duration is: " + temp);
         System.out.println("Stream, mapToInt, max, getAsInt:");
-        temp = // write stream use mapToInt then max the getAsInt
+        temp = entries.stream()
+                .filter(entry -> entry.getDuration() > 10)
+                .mapToInt(entry -> entry.getDuration())
+                .max()
+                .getAsInt();
         System.out.println("The Max Duration is: " + temp);
         System.out.println();
     }
