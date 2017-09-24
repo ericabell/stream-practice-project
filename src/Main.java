@@ -123,8 +123,16 @@ public class Main {
     public static void printDurationGreaterThan10(List<Entry> entries){
         System.out.println("For Loop:");
         // write for loop
+        for( Entry entry: entries ) {
+            if( entry.getDuration() > 10 ) {
+                System.out.println(entry);
+            }
+        }
         System.out.println("Stream, filter, forEach:");
         // write stream
+        entries.stream()
+                .filter(entry -> entry.getDuration() > 10)
+                .forEach(entry -> System.out.println(entry));
         System.out.println();
     }
 
