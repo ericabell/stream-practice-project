@@ -36,7 +36,7 @@ public class Main {
         // write for loop
         for( Entry entry: entries) {
             if( entry.getDay() == Day.TUESDAY) {
-                System.out.println("TUESDAY: " + entry);
+                System.out.println(entry);
             }
 
         }
@@ -106,15 +106,15 @@ public class Main {
         Set<String> weekdays = new HashSet<>();
         // write for loop
         for( Entry entry: entries ) {
-            if( entry.getDay() != Day.SATURDAY || entry.getDay() != Day.SUNDAY ) {
+            if( entry.getDay() != Day.SATURDAY && entry.getDay() != Day.SUNDAY ) {
                 weekdays.add(entry.getDay().toString());
             }
         }
         System.out.println(weekdays);
         System.out.println("Stream, filter, map, collect:");
         weekdays = entries.stream()
-                .filter(entry -> entry.getDay() != Day.SATURDAY || entry.getDay() != Day.SUNDAY)
-                .map( entry -> entry.toString())
+                .filter(entry -> entry.getDay() != Day.SATURDAY && entry.getDay() != Day.SUNDAY)
+                .map( entry -> entry.getDay().toString())
                 .collect(Collectors.toSet());
 
         System.out.println(weekdays);
