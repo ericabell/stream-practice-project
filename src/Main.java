@@ -52,10 +52,26 @@ public class Main {
         System.out.println("For Loop:");
         int count = 0;
         // write for loop
+        for( Entry entry: entries ) {
+            if( entry.getDay() == Day.TUESDAY) {
+                count++;
+            }
+            if( entry.getDay() == Day.WEDNESDAY) {
+                count++;
+            }
+            if( entry.getDay() == Day.THURSDAY) {
+                count++;
+            }
+        }
         System.out.println("Number of entries on Tuesday, Wednesday or Thursday: " + count);
+
         System.out.println("Stream, filter, count: ");
         long count1 = 0;
         // write stream
+        count1 = entries.stream()
+                .filter(entry -> entry.getDay() == Day.TUESDAY || entry.getDay() == Day.WEDNESDAY || entry.getDay() == Day.THURSDAY)
+                .count();
+        
         System.out.println("Number of entries on Tuesday, Wednesday or Thursday: " + count1);
         System.out.println();
     }
