@@ -71,7 +71,7 @@ public class Main {
         count1 = entries.stream()
                 .filter(entry -> entry.getDay() == Day.TUESDAY || entry.getDay() == Day.WEDNESDAY || entry.getDay() == Day.THURSDAY)
                 .count();
-        
+
         System.out.println("Number of entries on Tuesday, Wednesday or Thursday: " + count1);
         System.out.println();
     }
@@ -81,9 +81,20 @@ public class Main {
         System.out.println("For Loop:");
         List<Entry> weekends = new ArrayList<>();
         // write for loop
+        for( Entry entry: entries ) {
+            if( entry.getDay()==Day.SATURDAY) {
+                weekends.add(entry);
+            }
+            if( entry.getDay()==Day.SUNDAY) {
+                weekends.add(entry);
+            }
+        }
         System.out.println(weekends);
+
         System.out.println("Stream, filter, collect:");
-        weekends = // write stream use collect as the terminal operation
+        weekends = entries.stream()
+                .filter(entry -> entry.getDay()==Day.SATURDAY || entry.getDay()==Day.SUNDAY)
+                .collect(Collectors.toList());
         System.out.println(weekends);
         System.out.println();
     }
